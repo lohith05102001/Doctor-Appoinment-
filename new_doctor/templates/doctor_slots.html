@@ -1,0 +1,49 @@
+{% include 'phead.html' %}
+<div class="p-20">
+    <div class="row space-around">
+        <div class="">
+            <div class="h5">Dr: {{doctor['first_name']}}</div>
+            <div class="">{{doctor['specialization']}}</div>
+        </div>
+        <div class=" "><h1>Doctor Available Slots</h1></div>
+
+        <div class="">
+            <form action="doctor_slots">
+                <input type="hidden" name="doctor_id" value="{{doctor_id}}">
+                <input type="date" name="appointment_date" value="{{appointment_date2}}" id="appointment_date2" onchange="this.form.submit()" style="color:dark" required>
+            </form>
+        </div>
+
+    </div>
+       <div class="row">
+        {% for slot in slots %}
+            {% set from_time = formate_time(slot['slot_from_time'])%}
+            {% set to_time = formate_time2(slot['slot_to_time'])%}
+            {% set is_booked = is_slot_booked(slot['_id'],appointment_date) %}
+                {% if is_booked %}
+                    <div class="card  w-20 ml-50 mt-20 p-10">
+                        <div class="text-center h6">Slot.No : {{slot['slot_number']}}</div>
+                        <form action="description">
+                            <input type="hidden" name="doctor_id" value="{{doctor_id}}">
+                            <input type="hidden" name="slot_id" value="{{slot['_id']}}">
+                            <input type="hidden" name="appointment_date" value="{{appointment_date}}"  required>
+                            <button type="submit"  disabled class="btn-red h5">Booked</button>
+                        </form>
+                    </div>
+                {% else %}
+                    <div class="card  w-20 ml-50 mt-20 p-10">
+                        <div class="text-center h6">Slot.No : {{slot['slot_number']}}</div>
+                        <div class="row">From-Time: <h4>{{slot['day']}}</h4></div>
+                        <div class="">From-Time: {{from_time}}</div>
+                        <div class="">To-TIme : {{to_time}}</div>
+                        <form action="description">
+                            <input type="hidden" name="doctor_id" value="{{doctor_id}}">
+                            <input type="hidden" name="slot_id" value="{{slot['_id']}}">
+                            <input type="hidden" name="appointment_date" value="{{appointment_date}}" required>
+                            <button type="submit" class="btn h5">Book</button>
+                        </form>
+                    </div>
+                {% endif %}
+        {% endfor %}
+       </div>
+</div>

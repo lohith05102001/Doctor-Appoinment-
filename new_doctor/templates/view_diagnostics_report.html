@@ -1,0 +1,18 @@
+{% if session['role']== "patient" %}
+    {% include 'phead.html' %}
+{% endif %}
+{% if session['role']== "doctor" %}
+    {% include 'dhead.html' %}
+{% endif %}
+{% if session['role']== "admin" %}
+    {% include 'ahead.html' %}
+{% endif %}
+<div class="text-center"><h1>View Doctor's Prescription</h1></div>
+<div class="row">
+    {% for diagnostics_report in diagnostics_reports %}
+        <div class="card  w-30 mt-50 ml-50 p-20">
+            <div>Prescribed Date :- {{diagnostics_report['diagnostics_report_date'].strftime("%d-%m-%Y")}}</div>
+            <div class="row">Doctor's Diagnostics Report :- <h4>{{diagnostics_report['diagnostics_report']}}</h4></div>
+        </div>
+    {% endfor %}
+</div>

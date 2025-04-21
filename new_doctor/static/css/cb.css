@@ -1,0 +1,310 @@
+.animated-text {
+  font-size: 400%;
+  font-weight: bold;
+  color: #f8f6f6;
+  position: relative;
+  opacity: 0; 
+  animation: slideToMiddle 2s ease forwards;
+  text-align: center;
+}
+
+.animated-text-1 {
+  font-size: 150%;
+  font-weight: bold;
+  color: #9ef86d;
+  position: relative;
+  opacity: 0; 
+  animation: slideToMiddle 5s ease forwards;
+  text-align: center;
+}
+
+@keyframes slideToMiddle {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(30vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(30vh);
+    opacity: 1;
+  }
+}
+
+
+
+@keyframes adminFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes adminButtonHover {
+    0% {
+        background-color: #28a745;
+    }
+    50% {
+        background-color: #218838;
+    }
+    100% {
+        background-color: #28a745;
+    }
+}
+
+
+
+.admin-login-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    animation: adminFadeIn 1.5s ease-out;
+}
+
+.admin-login-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    animation: adminFadeIn 2s ease-out;
+}
+
+.admin-form-group {
+    margin-bottom: 1rem;
+    animation: adminFadeIn 1.2s ease-out;
+}
+
+.admin-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.admin-form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: box-shadow 0.3s;
+}
+
+.admin-form-group input:focus {
+    box-shadow: 0 0 5px rgba(40, 59, 167, 0.5);
+    outline: none;
+}
+
+#addDoctordetails{
+    max-height: 650px;
+    overflow-y: auto;
+}
+
+#viewDoctordetails{
+    max-height: 650px;
+    overflow-y: auto;
+}
+
+.blue{
+    color: blue;
+}
+
+.admin-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4f70d0;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+    animation: adminFadeIn 2s ease-out;
+}
+
+.admin-btn:hover {
+    animation: adminButtonHover 0.5s alternate infinite;
+}
+
+
+
+
+
+
+
+
+
+/* Main Container for Add/View Hospital Details */
+.hospital-container {
+    background-color: #f7f9fc;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    margin: 2rem auto;
+    animation: adminFadeIn 1.8s ease-out;
+}
+
+/* Title */
+.hospital-title {
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+    color: #4f70d0;
+    margin-bottom: 1.5rem;
+    animation: fadeSlideIn 2s ease-out;
+}
+
+/* Input Group Styling */
+.hospital-form-group {
+    margin-bottom: 1rem;
+    animation: fadeSlideIn 1.5s ease-out;
+}
+
+.hospital-form-group label {
+    display: block;
+    font-weight: bold;
+    color: #4f70d0;
+    margin-bottom: 0.5rem;
+}
+
+.hospital-form-group input, .hospital-form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.hospital-form-group input:focus, .hospital-form-group select:focus {
+    box-shadow: 0 0 5px rgba(79, 112, 208, 0.6);
+    transform: scale(1.02);
+    outline: none;
+}
+
+/* Add Button */
+.hospital-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #4f70d0;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: fadeSlideIn 2s ease-out;
+}
+
+.hospital-btn:hover {
+    background-color: #415da8;
+    transform: translateY(-3px);
+}
+
+#addHospitalDetails {
+    max-height: 550px;
+    overflow-y: auto;
+}
+
+/* Overflow for View Details */
+#viewHospitalDetails {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Animations */
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonHoverPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+.hospital-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    animation: fadeSlideIn 1.5s ease-out;
+}
+
+.hospital-card h3 {
+    color: #4f70d0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hospital-detail {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+
+
+
+.doctor-details {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+}
+.doctor-details h2 {
+    margin-top: 0;
+    color: #4f70d0;
+}
+.doctor-details p {
+    margin: 10px 0;
+    color: #333333;
+}
+.doctor-details p span {
+    font-weight: bold;
+    color: #555555;
+}
+.btn {
+    background-color: #4f70d0;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background-color: #415da8;
+}
+
+
+ form textarea {
+            width: 100%;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }

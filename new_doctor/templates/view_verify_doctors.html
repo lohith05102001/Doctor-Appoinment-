@@ -1,0 +1,60 @@
+{% include 'h_head.html' %}
+<h1 class="text-center">View & Verify Doctor Details</h1>
+<div class="card w-80 p-20 ml-200 mt-50 animated-card">
+    <table id="doctorDetailsTable" class="styled-table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Qualification</th>
+                <th>Specialization</th>
+                <th>Status</th>
+                <th>Verify Action</th>
+                <th>De-Verify Action</th>
+                            <th>Enter Consultant Fee</th>
+                            <th>View Consultant Fee</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+                <tr class="fade-in-row">
+                    <td>{{doctor['first_name']}}</td>
+                    <td>{{doctor['last_name']}}</td>
+                    <td>{{doctor['email']}}</td>
+                    <td>{{doctor['phone']}}</td>
+                    <td>{{doctor['address']}}</td>
+                    <td>{{doctor['qualification']}}</td>
+                    <td>{{doctor['specialization']}}</td>
+                    <td class="status">{{doctor['status']}}</td>
+                        <td>
+                            {% if doctor['status'] == 'Not Verified' %}
+                                <a class="under-line verify-button animated-button" href="verify_doctor?doctor_id={{doctor['_id']}}">Verify</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if doctor['status'] == 'Verified' %}
+                                <a class="under-line verify-button animated-button" href="de_verify_doctor?doctor_id={{doctor['_id']}}">De-Verify</a>
+                            {% endif %}
+                        </td>
+                        {% if doctor['status'] == 'Verified' %}
+                            <td>
+                                <div>
+                                    <form action="consultant_fee_action">
+                                        <div>
+                                            <input type="text" name="consultant_fee" placeholder="Enter Consultant Fee">
+                                            <input type="hidden" name="doctor_id" value="{{doctor['_id']}}">
+                                            <button type="submit" class="btn">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </td>
+                            <td>$ {{doctor['consultant_fee']}}</td>
+                        {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

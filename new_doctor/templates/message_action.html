@@ -1,0 +1,13 @@
+{% if session['role']== "admin" %}
+    {% include 'ahead.html' %}
+{% elif session['role']== "hospital" %}
+    {% include 'h_head.html' %}
+{% elif session['role']== "doctor" %}
+    {% include 'dhead.html' %}
+{% elif session['role']== "patient" %}
+    {% include 'phead.html' %}
+{% endif %}
+<div class="location-bg-color">
+    <div >.</div>
+    <div class="mt-100 sub-title text-center  h2">{{message}}</div>
+</div>

@@ -1,0 +1,22 @@
+{% include 'head.html' %}
+<div class="pr">
+    <img src="https://t3.ftcdn.net/jpg/00/92/34/56/240_F_92345619_pUlEznFdreTJy5amSBspNNtQT0sqhTwM.jpg" class="login-bg-img" alt="" >
+    <div class="login-bg-color">
+        <div class="ml-100 mt-200">
+            <div class="admin-login-container">
+                <h2 class="admin-login-title">Admin Login</h2>
+                <form action="admin_login_action" method="post">
+                    <div class="admin-form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

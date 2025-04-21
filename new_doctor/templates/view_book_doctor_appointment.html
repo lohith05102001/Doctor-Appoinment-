@@ -1,0 +1,21 @@
+{% include 'phead.html' %}
+<body>
+    <div class="row">
+        {% for doctor in doctors %}
+            <div class="doctor-details">
+                <h2>Doctor Details</h2>
+                <p><span>First Name:</span> {{ doctor.first_name }}</p>
+                <p><span>Last Name:</span> {{ doctor.last_name }}</p>
+                <p><span>Email:</span> {{ doctor.email }}</p>
+                <p><span>Phone:</span> {{ doctor.phone }}</p>
+                <p><span>Address:</span> {{ doctor.address }}</p>
+                <p><span>Qualification:</span> {{ doctor.qualification }}</p>
+                <p><span>Specialization:</span> {{ doctor.specialization }}</p>
+                <form action="doctor_slots">
+                    <input type="hidden" name="doctor_id" value="{{doctor['_id']}}">
+                    <button type="submit" class="btn">Book Slot</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>

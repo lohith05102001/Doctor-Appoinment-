@@ -1,0 +1,112 @@
+{% include 'head.html' %}
+<div class="pr">
+    <img src="https://www.freep.com/gcdn/presto/2023/05/27/PDTF/572fc743-1807-40bb-a422-8a6e477b7f7c-IMG_GettyImages-11370499_1_.JPG?crop=4646,2613,x1,y485&width=660&height=371&format=pjpg&auto=webp"
+        class="login-bg-img" alt="">
+    <div class="login-bg-color">
+        <div class="ml-100 mt-100">
+            <div class="admin-login-container card w-50">
+                <div id="loginForm">
+                    <h2 class="admin-login-title">Doctor Login</h2>
+                    <form action="doctor_login_action" method="post">
+                        <div class="admin-form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                        <div class="user-bottom row mt-10">
+                            <label>Don't have an account?</label>
+                            <a class="under-line link-2" href="javascript:void(0);" onclick="toggleForm('registrationForm')">
+                                <h3 class="ml-200">Register Now</h3>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="registrationForm" style="display: none;">
+                    <h2 class="text-center mt-10">Doctor Registration</h2>
+                    <form action="doctor_registration_action" method="post">
+                        <div class="user mt-10">
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" name="first_name" class="form-input p-5px" placeholder="Enter Your First Name" required>
+                        </div>
+                        <div class="user mt-10">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" id="last_name" name="last_name" class="form-input p-5px" placeholder="Enter Your Last Name" required>
+                        </div>
+                        <div class="email mt-10">
+                            <label for="email_1">Email</label>
+                            <input type="email" id="email_1" name="email_1" class="form-input p-5px" placeholder="Enter Email" required>
+                        </div>
+                        <div class="password mt-10">
+                            <label for="password_1">Password</label>
+                            <input type="password" id="password_1" name="password_1" class="form-input p-5px" placeholder="Enter Password" required>
+                        </div>
+                        <div class="phone mt-10">
+                            <label for="phone">Phone</label>
+                            <input type="number" id="phone" name="phone" class="form-input p-5px" placeholder="Enter Phone Number" required>
+                        </div>
+                        <div class="zip_code mt-10">
+                            <label for="zip_code">ZIP Code</label>
+                            <input type="number" id="zip_code" name="zip_code" class="form-input p-5px" placeholder="Enter ZIP Code" required>
+                        </div>
+                        <div class="city mt-10">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" class="form-input p-5px" placeholder="Enter City" required>
+                        </div>
+                        <div class="dob mt-10">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" class="form-input p-5px" required>
+                        </div>
+                        <div class="address mt-10">
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" class="form-input p-5px" placeholder="Enter Address" required></textarea>
+                        </div>
+                        <div class="qualification mt-10">
+                            <label for="qualification">Qualification</label>
+                            <input type="text" id="qualification" name="qualification" class="form-input p-5px" placeholder="Enter Qualification" required>
+                        </div>
+                        <div class="specialization mt-10">
+                            <label for="specialization">Specialization</label>
+                            <input type="text" id="specialization" name="specialization" class="form-input p-5px" placeholder="Enter Specialization" required>
+                        </div>
+                        <div class="avp-input-group">
+                          <label>Hospital</label>
+                           <select required  class="w-100 mt-20 form-input"  name="hospital_id">
+                                <option value=" ">Choose Hospitals</option>
+                                {% for hospital in hospitals %}
+                                    <option value="{{hospital['_id']}}">{{hospital['first_name']}}</option>
+                                {% endfor %}
+                           </select>
+                        </div>
+                        <button type="submit" class="btn h6">REGISTER</button>
+                        <div class="user-bottom row mt-10">
+                            <label>Already have an account?</label>
+                            <a class="under-line link-2" href="javascript:void(0);" onclick="toggleForm('loginForm')">
+                                <h3 class="ml-200">Login Here</h3>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleForm(formId) {
+        const loginForm = document.getElementById('loginForm');
+        const registrationForm = document.getElementById('registrationForm');
+
+        if (formId === 'loginForm') {
+            loginForm.style.display = 'block';
+            registrationForm.style.display = 'none';
+        } else if (formId === 'registrationForm') {
+            registrationForm.style.display = 'block';
+            loginForm.style.display = 'none';
+        }
+    }
+</script>
